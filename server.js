@@ -14,8 +14,8 @@ const io = new Server(server, {
   }
 });
 
-app.get('/status', (req, res) => {
-  res.send('ok');
+app.get('/', (req, res) => {
+  res.send('Bienvenido a la charla "Crea un chatbot con AWS Bedrock y Claude"');
 });
 
 
