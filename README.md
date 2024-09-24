@@ -8,8 +8,8 @@
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
 	<img src="https://img.shields.io/badge/Nodemon-76D04B.svg?style=flat&logo=Nodemon&logoColor=white" alt="Nodemon">
 	<img src="https://img.shields.io/badge/Socket.io-010101.svg?style=flat&logo=socketdotio&logoColor=white" alt="Socket.io">
-	<img src="https://img.shields.io/badge/Express-000000.svg?style=flat&logo=Express&logoColor=white" alt="Express">
 	<img src="https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white" alt="JSON">
+	<img src="https://img.shields.io/badge/Express-000000.svg?style=flat&logo=Express&logoColor=white" alt="Express">
 </p>
 
 <br>
@@ -36,6 +36,7 @@
     ├── package-lock.json
     ├── package.json
     ├── server.js
+    ├── socket.js
     └── utils.js
 ```
 
@@ -47,12 +48,13 @@
 
 | File | Summary |
 | --- | --- |
-| [bedrockAgent.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/bedrockAgent.js) | Enables invoking Bedrock agent with specified parameters for AI response retrieval, handling errors appropriately. Key features include client initialization, agent command execution, and response processing. Interacts with AWS SDK and relevant configurations. |
-| [config.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/config.js) | Port, origin, AWS region, access keys, and Bedrock agent details like alias ID, max tokens, and temperature. Handles environment variables for flexible deployment and customization. |
-| [server.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/server.js) | Enables real-time chat interactions with AWS Bedrock via sockets. Handles user messages, invokes chatbot responses, and notifies on disconnect. Configurations from `config.js` are used for server setup. |
-| [utils.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/utils.js) | Combines chatbot response chunks for message processing, ensuring coherent communication flow in the AWS CD Chatbot Backend. Handles various data formats to decode and unify incoming responses for seamless integration with other modules. |
-| [package.json](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/package.json) | Enables seamless deployment of an AWS chatbot backend. Facilitates running, monitoring, and managing the chatbot server script. Manages necessary dependencies and provides development tools for efficient coding and testing. |
-| [package-lock.json](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/package-lock.json) | This `package-lock.json` file in the `aws-cd-chatbot-backend` repository serves a vital role in managing dependencies and ensuring consistent installations across environments. It maintains a record of all necessary packages and their versions to facilitate seamless collaboration and deployment of the chatbot backend application. |
+| [bedrockAgent.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/bedrockAgent.js) | Enables invoking Bedrock Agent for AI chatbot interactions by sending commands and processing responses. Key features include setting parameters and handling errors during agent invocation. |
+| [config.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/config.js) | Defines default settings for the backend server, including ports, AWS credentials, and AI agent parameters. Enables easy configuration for AWS services and AI features within the chatbot application. |
+| [socket.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/socket.js) | Handles real-time chat communication between the user and the chatbot. Manages message creation and delivery based on session ID. Logs user and chatbot interactions, triggers appropriate responses, and handles disconnect events. |
+| [server.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/server.js) | Initializes an Express server with Socket.io integration, connecting clients to handle a chatbot feature. Implements CORS policies and serves a welcome message. |
+| [utils.js](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/utils.js) | Extracts message chunks and formats responses for chatbot interaction, ensuring a seamless message stream handling within the backend architecture. Complements with a function to create structured chatbot messages. |
+| [package.json](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/package.json) | Enables AWS chatbot backend functionality. Defines dependencies and scripts for server management. Key features include socket communication support, AWS SDK integration, and environment variable management. Essential for running backend server operations seamlessly within the repository architecture. |
+| [package-lock.json](https://github.com/JorgeFi18/aws-cd-chatbot-backend/blob/main/package-lock.json) | The `package-lock.json` file in the `aws-cd-chatbot-backend` repository serves as a crucial component for managing dependencies and ensuring consistent builds. It locks down the specific versions of dependencies required for the project, preventing potential inconsistencies between builds. This file plays a vital role in guaranteeing the stability and reproducibility of the projects development environment by recording the exact dependency tree at the time of installation. |
 
 </details>
 
@@ -88,5 +90,5 @@ Build the project from source:
 To run the project, execute the following command:
 
 ```sh
-❯ node run dev
+❯ npm run dev
 ```
