@@ -26,6 +26,17 @@ async function joinResponseChunks(response) {
   }
 };
 
+function MessageCreator(sessionId) {
+  return function(sender, content) {
+    return {
+      sessionId: sessionId,
+      sender: sender,
+      content: content
+    }
+  }
+}
+
 module.exports = {
-  joinResponseChunks
+  joinResponseChunks,
+  MessageCreator
 };
